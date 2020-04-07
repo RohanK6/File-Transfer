@@ -12,4 +12,4 @@ def upload(request):
     return render(request, 'transfer/upload.html')
 
 def download(request):
-    return render(request, 'tranafer/download.html')
+    return render(request, 'transfer/download.html')
