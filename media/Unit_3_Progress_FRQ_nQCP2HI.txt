@@ -1,0 +1,46 @@
+============================================================
+1a) 
+if (rsvp) {
+	System.out.println("attending");
+} else {
+	System.out.println("not attending");
+}
+============================================================
+1b) 
+String[] foods = {"beef", "chicken", "pasta", "fish"}
+if (selection >= 1 && selection <= 3) {
+	System.out.println(foods[selection-1]);
+} else {
+	System.out.println(foods[4]);
+}
+============================================================
+1c)
+if (rsvp) {
+	option1 = "Thanks for attending. You will be served " + selection);
+} else {
+	option1 = "Sorry you can't make it.";
+}
+============================================================
+1d) 
+if (option1.equals(option2)) {
+	System.out.println("true");
+} else {
+	System.out.println("false");
+}
+============================================================
+2a
+public void draqSquare(int x, int y, int len) {
+		if (x + len > 10 ) {
+			int truelen = 10-x;
+		} else if (y - len < 0) {
+			int truelen = y;
+		} else {
+			int truelen = len;
+		}
+		drawLine(x, y, x+truelen, y);
+		drawLine(x+truelen, y, x+truelen, y-truelen);
+		drawLine(x+truelen, y-truelen, x-truelen, y-truelen);
+		drawLine(x, y-truelen, x, y);
+		System.out.println("side length = " + truelen + ", area = " + (truelen * truelen);
+}
+============================================================

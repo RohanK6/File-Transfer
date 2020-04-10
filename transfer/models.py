@@ -7,7 +7,7 @@ class File(models.Model):
     description = models.CharField(max_length = 100)
     dateUploaded = models.DateTimeField(default = timezone.now)
     doc = models.FileField(null=True)
-    serial = models.CharField(max_length = 6, default = uuid.uuid4().hex[:20].upper(), unique = True)
+    serial = models.CharField(max_length = 6, default = uuid.uuid4().hex[:20].upper())
     id = models.AutoField(primary_key=True)
 
     def __str__(self):

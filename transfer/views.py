@@ -14,11 +14,12 @@ def upload(request):
     if request.method == 'POST':
         form = FileForm(request.POST, request.FILES)
         if form.is_valid():
+            context = {}
             userf = form.save(commit = False)
             userf.save()
-            #print(userf.serial)
-            return render(request, 'transfer/upload.html', {'userf': userf})
-
+            context['userf'] = userf
+            context['serial'] = userf.serial
+            return render(request, 'transfer/upload.html', context)
     context = {'form': form}
     return render(request, 'transfer/upload.html', context)
 
