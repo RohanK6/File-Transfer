@@ -1,5 +1,5 @@
 #MacOS Related
 .DS_Store
 #Keep media folder but none of the contents in repository 
-media/
+media/*
 !media/.gitkeep 
