@@ -9,3 +9,9 @@ class FileForm(forms.ModelForm):
         'description',
         'doc'
         ]
+class DownloadForm(forms.ModelForm):
+    class Meta:
+        model = File 
+        fields = [ 
+        'code'
+        ]

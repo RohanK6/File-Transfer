@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader 
 
-from .forms import FileForm
+from .forms import FileForm, DownloadForm
 from .models import File
 
 # Create your views here.
@@ -19,9 +19,14 @@ def upload(request):
             userf.save()
             context['userf'] = userf
             context['serial'] = userf.serial
-            return render(request, 'transfer/upload.html', context)
+            return render(request, 'transfer/success.html', context)
     context = {'form': form}
     return render(request, 'transfer/upload.html', context)
 
+def success(request):
+    return render(request, 'transfer/success.html')
+
 def download(request):
-    return render(request, 'transfer/download.html')
+    downloadForm = DownloadForm()
+    context = {'downloadForm': downloadForm}
+    return render(request, 'transfer/download.html', context)
