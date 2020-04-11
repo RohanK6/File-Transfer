@@ -28,5 +28,15 @@ def success(request):
 
 def download(request):
     downloadForm = DownloadForm()
+    if request.method == 'POST':
+        downloadForm = DownloadForm(request.POST)
+        if downloadForm.is_valid():
+            context = {}
+            requestedCode = request.POST['code']
+            requestedFile = File.objects.get(serial = requestedCode)
+            print(requestedFile.doc.path)
+
+
+            return render(request, 'transfer/download.html', context)
     context = {'downloadForm': downloadForm}
     return render(request, 'transfer/download.html', context)
