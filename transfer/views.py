@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader 
+from django.contrib import messages
 
 from .forms import FileForm, DownloadForm
 from .models import File
@@ -32,11 +33,16 @@ def download(request):
         downloadForm = DownloadForm(request.POST)
         if downloadForm.is_valid():
             context = {}
+
             requestedCode = request.POST['code']
             requestedFile = File.objects.get(serial = requestedCode)
-            print(requestedFile.doc.path)
+            requestedFileURL = requestedFile.doc.url
 
+            context['file_url'] = requestedFileURL
+            context['submitted'] = True
 
             return render(request, 'transfer/download.html', context)
-    context = {'downloadForm': downloadForm}
+    context = {}
+    context['downloadForm'] = downloadForm
+    context['submitted'] = False
     return render(request, 'transfer/download.html', context)

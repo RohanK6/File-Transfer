@@ -20,9 +20,9 @@
                     <table>
                         {{ downloadForm.as_table }}
                     </table>
-                    <input type="submit" class="btn btn-primary btn-lg" name="submit">
-        </form>
-
+                    {% if not submitted %} <input type="submit" class="btn btn-primary btn-lg" name="submit"> {% endif %}
+        </form> 
+                {% if submitted %} <a href="{{file_url}}" download> DL </a> {% endif %}
         <script src="" async defer></script>
     </body>
 </html>
