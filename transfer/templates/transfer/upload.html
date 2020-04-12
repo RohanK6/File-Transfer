@@ -4,14 +4,16 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
+        {% load static %}
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>FileTransfer</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" type="text/css" href="{% static 'transfer/upload_styles.css' %}">
     </head>
     <body>
+        {% if not uploaded %}
         <p> Welcome to Upload!</p>
 
         <form method="POST" enctype="multipart/form-data">
@@ -20,9 +22,13 @@
                     <table>
                         {{ form.as_table }}
                     </table>
-                    <input type="submit" class="btn btn-primary btn-lg" name="submit">
+                     <input type="submit" class="btn btn-primary btn-lg" name="submit"> 
         </form>
+        {% endif %}
 
+        {% if uploaded %}
+            <h2> Your file code is: {{ serial }} </h2>
+        {% endif %}
         <script src="" async defer></script>
     </body>
 </html>

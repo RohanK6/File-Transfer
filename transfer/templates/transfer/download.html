@@ -4,14 +4,16 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
+        {% load static %}
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>FileTransfer</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" type="text/css" href="{% static 'transfer/download_styles.css' %}">
     </head>
     <body>
+        {% if not submitted %} 
         <p> Welcome to Download!</p>
 
         <form method="POST" enctype="multipart/form-data">
@@ -20,9 +22,11 @@
                     <table>
                         {{ downloadForm.as_table }}
                     </table>
-                    {% if not submitted %} <input type="submit" class="btn btn-primary btn-lg" name="submit"> {% endif %}
+                    <input type="submit" class="btn btn-primary btn-lg" name="submit"> 
         </form> 
-                {% if submitted %} <a href="{{file_url}}" download> DL </a> {% endif %}
+        {% endif %}
+
+        {% if submitted %} <a href="{{file_url}}" download> DL </a> {% endif %}
         <script src="" async defer></script>
     </body>
 </html>

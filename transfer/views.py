@@ -16,16 +16,19 @@ def upload(request):
         form = FileForm(request.POST, request.FILES)
         if form.is_valid():
             context = {}
+
             userf = form.save(commit = False)
             userf.save()
+
             context['userf'] = userf
             context['serial'] = userf.serial
-            return render(request, 'transfer/success.html', context)
-    context = {'form': form}
-    return render(request, 'transfer/upload.html', context)
+            context['uploaded'] = True
 
-def success(request):
-    return render(request, 'transfer/success.html')
+            return render(request, 'transfer/upload.html', context)
+    context = {}
+    context['form'] = form 
+    context['uploaded'] = False
+    return render(request, 'transfer/upload.html', context)
 
 def download(request):
     downloadForm = DownloadForm()
