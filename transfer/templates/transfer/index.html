@@ -14,15 +14,16 @@
         <link rel="stylesheet" type="text/css" href="{% static 'transfer/index_styles.css' %}">
     </head>
     <body>
-        <p> Welcome to FileTransfer!</p>
+        <div class="box">
+            <h1>FileTransfer!</h1>
 
-        <form action="transfer/upload">
-            <button type="submit">Upload</button>
-        </form>
-        <form action="transfer/download">
-            <button type="submit">Download</button>
-        </form>
-        
+            <form action="transfer/upload">
+                <button type="submit">Upload</button>
+            </form>
+            <form action="transfer/download">
+                <button type="submit">Download</button>
+            </form>
+        </div>
         
         <script src="" async defer></script>
     </body>

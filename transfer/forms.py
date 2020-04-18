@@ -9,9 +9,17 @@ class FileForm(forms.ModelForm):
         'description',
         'doc'
         ]
+        widgets = {
+            'fileName': forms.TextInput(attrs={'placeholder': 'File Name'}),
+            'description': forms.TextInput(attrs={'placeholder': 'File Description'}),
+            'doc': forms.FileInput(attrs={'id': 'real-btn'})
+        }
 class DownloadForm(forms.ModelForm):
     class Meta:
         model = File 
         fields = [ 
         'code'
         ]
+        widgets = {
+            'code': forms.TextInput(attrs={'placeholder': 'File Code'})
+        }

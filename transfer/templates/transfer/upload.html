@@ -14,21 +14,27 @@
     </head>
     <body>
         {% if not uploaded %}
-        <p> Welcome to Upload!</p>
 
-        <form method="POST" enctype="multipart/form-data">
-                    <!-- Very Important csrf Token -->
-                    {% csrf_token %}
-                    <table>
-                        {{ form.as_table }}
-                    </table>
-                     <input type="submit" class="btn btn-primary btn-lg" name="submit"> 
+        <form method="POST" class="box" enctype="multipart/form-data">
+            <h1> Upload File </h1>
+            {% csrf_token %}
+            {{ form.fileName }}
+            {{ form.description }}
+
+            {{ form.doc }}    
+            <button type="button" id="custom-btn"> Select... </button> 
+
+            <input type="submit" name="submit" value="Upload">
         </form>
+        <script src="{% static 'transfer/uploadButton.js' %}"> </script>
         {% endif %}
 
         {% if uploaded %}
             <h2> Your file code is: {{ serial }} </h2>
         {% endif %}
+
+        
+
         <script src="" async defer></script>
     </body>
 </html>

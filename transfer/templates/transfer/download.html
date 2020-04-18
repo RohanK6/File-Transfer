@@ -13,20 +13,20 @@
         <link rel="stylesheet" type="text/css" href="{% static 'transfer/download_styles.css' %}">
     </head>
     <body>
-        {% if not submitted %} 
-        <p> Welcome to Download!</p>
+        <div class="box">
+        <h1> Download </h1>
 
-        <form method="POST" enctype="multipart/form-data">
-                    <!-- Very Important csrf Token -->
-                    {% csrf_token %}
-                    <table>
-                        {{ downloadForm.as_table }}
-                    </table>
-                    <input type="submit" class="btn btn-primary btn-lg" name="submit"> 
-        </form> 
+        {% if not submitted %} 
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ downloadForm.code }}
+                <input type="submit" class="btn btn-primary btn-lg" name="submit"> 
+            </form> 
         {% endif %}
 
-        {% if submitted %} <a href="{{file_url}}" download> DL </a> {% endif %}
+        {% if submitted %} <a href="{{file_url}}" download> <button> Click Here! </button> </a> {% endif %}
+        </div>
+        
         <script src="" async defer></script>
     </body>
 </html>

@@ -1,0 +1,102 @@
+body {
+   background-color: #2C2B30;
+   padding: 0;
+   margin: 0;
+   text-align: center;
+}
+
+.box h1 {
+    color: white;
+}
+
+.box {
+    padding: 40px;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2C2B30;
+}
+
+.box input[type="text"] {
+    border: 0;
+    width: 200px;
+    background: none;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    border: 2px solid #F58F7C;
+    padding: 14px 20px;
+    outline: none;
+    color: white;
+    border-radius: 25px;
+    font-size: 15px;
+
+}
+
+.box input[type="text"]:focus {
+   width: 250px;
+   transition: width 0.5s;
+   border-color: #F2C4CE;
+}
+
+#real-btn {
+    display: none;
+}
+
+#custom-btn {
+    border: 0;
+    width: 100px;
+    background: none;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    border: 2px solid #F58F7C;
+    padding: 14px 20px;
+    outline: none;
+    color: white;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#custom-btn-uploaded {
+    border: 0;
+    width: 300px;
+    background: none;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    border: 2px solid #F58F7C;
+    padding: 14px 20px;
+    outline: none;
+    color: white;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#custom-btn:hover, #custom-btn-uploaded:hover {
+    background: #F58F7C;
+}
+
+.box input[type="submit"] {
+    border: 0;
+    width: 200px;
+    background: none;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    border: 2px solid #F58F7C;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 25px;
+    font-size: 15px;
+}
+
+.box input[type="submit"]:hover {
+    background: #F58F7C;
+    cursor: pointer;
+}
