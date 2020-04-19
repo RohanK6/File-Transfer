@@ -37,7 +37,7 @@ def download(request):
         if downloadForm.is_valid():
             context = {}
 
-            requestedCode = request.POST['code']
+            requestedCode = request.POST['code'].strip()
             requestedFile = File.objects.get(serial = requestedCode)
             requestedFileURL = requestedFile.doc.url
 

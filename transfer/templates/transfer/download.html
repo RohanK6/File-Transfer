@@ -20,7 +20,7 @@
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ downloadForm.code }}
-                <input type="submit" class="btn btn-primary btn-lg" name="submit"> 
+                <input type="submit" name="submit"> 
             </form> 
         {% endif %}
 

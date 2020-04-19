@@ -100,3 +100,23 @@ body {
     background: #F58F7C;
     cursor: pointer;
 }
+
+.box button[type="button"] {
+    border: 0;
+    width: 300px;
+    background: none;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    border: 2px solid #F58F7C;
+    padding: 14px 20px;
+    outline: none;
+    color: white;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.box button[type="button"]:hover {
+    background: #F58F7C;
+}

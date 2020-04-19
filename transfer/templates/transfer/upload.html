@@ -13,9 +13,11 @@
         <link rel="stylesheet" type="text/css" href="{% static 'transfer/upload_styles.css' %}">
     </head>
     <body>
+        <div class="box">
+
         {% if not uploaded %}
 
-        <form method="POST" class="box" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
             <h1> Upload File </h1>
             {% csrf_token %}
             {{ form.fileName }}
@@ -30,9 +32,11 @@
         {% endif %}
 
         {% if uploaded %}
-            <h2> Your file code is: {{ serial }} </h2>
+            <h1> Copy Code </h1>
+            <button type="button" id="copy-btn"> {{ serial }} </button>
+            <script src="{% static 'transfer/copyButton.js' %}"> </script>
         {% endif %}
-
+        </div>
         
 
         <script src="" async defer></script>

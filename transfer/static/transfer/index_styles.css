@@ -36,4 +36,5 @@ text-align: center;
 
 .box button[type="submit"]:hover {
     background: #F58F7C;
+    cursor: pointer;
 }
