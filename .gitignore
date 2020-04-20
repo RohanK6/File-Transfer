@@ -3,3 +3,6 @@
 #Keep media folder but none of the contents in repository 
 media/*
 !media/.gitkeep 
+#Python related
+ __pycache__/
+ *.pyc

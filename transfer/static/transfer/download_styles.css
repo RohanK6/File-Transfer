@@ -40,9 +40,9 @@ a {
 }
 
 .box input[type="text"]:focus {
-width: 250px;
-transition: width 0.5s;
-border-color: #F2C4CE;
+    width: 250px;
+    transition: width 0.5s;
+    border-color: #F2C4CE;
 }
 
 .box input[type="submit"], button {
@@ -62,4 +62,9 @@ border-color: #F2C4CE;
 
 .box input[type="submit"]:hover, button:hover {
     background: #F58F7C;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
 }

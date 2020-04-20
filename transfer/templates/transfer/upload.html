@@ -1,44 +1,35 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        {% load static %}
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>FileTransfer</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="{% static 'transfer/upload_styles.css' %}">
-    </head>
-    <body>
-        <div class="box">
+{% extends 'transfer/base.html' %}
+{% load static %}
 
-        {% if not uploaded %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'transfer/upload_styles.css' %}">
+{% endblock %}
 
-        <form method="POST" enctype="multipart/form-data">
-            <h1> Upload File </h1>
-            {% csrf_token %}
-            {{ form.fileName }}
-            {{ form.description }}
+{%block content %}
 
-            {{ form.doc }}    
-            <button type="button" id="custom-btn"> Select... </button> 
+<div class="box">
 
-            <input type="submit" name="submit" value="Upload">
-        </form>
-        <script src="{% static 'transfer/uploadButton.js' %}"> </script>
-        {% endif %}
+{% if not uploaded %}
 
-        {% if uploaded %}
-            <h1> Copy Code </h1>
-            <button type="button" id="copy-btn"> {{ serial }} </button>
-            <script src="{% static 'transfer/copyButton.js' %}"> </script>
-        {% endif %}
-        </div>
-        
+<form method="POST" enctype="multipart/form-data">
+    <h1> Upload File </h1>
+    {% csrf_token %}
+    {{ form.fileName }}
+    {{ form.description }}
 
-        <script src="" async defer></script>
-    </body>
-</html>
+    {{ form.doc }}    
+    <button type="button" id="custom-btn"> Select... </button> 
+
+    <input type="submit" name="submit" value="Upload">
+</form>
+<script src="{% static 'transfer/uploadButton.js' %}"> </script>
+{% endif %}
+
+{% if uploaded %}
+    <h1> Copy Code </h1>
+    <button type="button" id="copy-btn"> {{ serial }} </button>
+    <script src="{% static 'transfer/copyButton.js' %}"> </script>
+{% endif %}
+</div>
+
+{% endblock %}
