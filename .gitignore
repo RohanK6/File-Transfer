@@ -4,5 +4,4 @@
 media/*
 !media/.gitkeep 
 #Python related
- __pycache__/
- *.pyc
+*.pyc
